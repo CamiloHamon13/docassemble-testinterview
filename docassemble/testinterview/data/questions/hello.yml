@@ -1,0 +1,43 @@
+---
+question: Hello, ${ customer }!
+subquestion: |
+  Your ID is ${ id } and your age is ${ age }. ${ content }
+attachment:
+  name: A formal letter for ${ customer }
+  filename: letter
+  docx template file: generic_interview.docx
+buttons:
+  - Exit: exit
+mandatory: True
+---
+question: |
+  What is your Name?
+fields:
+  - Your name: customer
+decoration: lock
+---
+question: |
+  What is your ID?
+fields:
+  - Your ID: id
+---
+question: |
+  What is your Age?
+fields:
+  - Your Age: age
+    datatype: number
+  
+---
+code: |
+  if int(age) >= 18:
+    content = "You are of legal age"
+  else:
+    content = "You are a child"
+---
+image sets:
+  freepik:
+    images:
+      lock: lock.png
+    attribution: |
+      Icon made by [Freepik](http://www.flaticon.com/authors/freepik)
+---
